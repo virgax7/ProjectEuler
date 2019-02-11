@@ -13,6 +13,7 @@
 # for e.g. 24 is 2 * 2 * 2 * 3 and now the answer is the last factor, i.e. 3
 
 import numpy
+import mp.math_utils as m
 
 number = 600851475143
 divisor = 2
@@ -20,14 +21,8 @@ divisor = 2
 # https://stackoverflow.com/questions/5811151/why-do-we-check-up-to-the-square-root-of-a-prime-number-to-determine-if-it-is-pr
 def next_prime(x):
     for i in range(x + 1, int(numpy.sqrt(number)) + 1):
-        if is_prime(i):
+        if m.is_prime(i):
             return i
-
-def is_prime(x):
-    for i in range(2, int(numpy.sqrt(x)) + 1):
-        if x % i == 0:
-            return False
-    return True
 
 
 while True:
@@ -36,7 +31,7 @@ while True:
         number = quotient
     else:
         divisor = next_prime(divisor)
-    if is_prime(number):
+    if m.is_prime(number):
         print(number)
         break
 
