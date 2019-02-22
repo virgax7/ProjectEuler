@@ -16,9 +16,10 @@ def combo_repeat(list, i, target, ans):
         ans[0] += 1
         return
     if target < 0:
-        return
+        return True
     for j in range(i, len(list)):
-        combo_repeat(list, j, target - list[j], ans)
+        if combo_repeat(list, j, target - list[j], ans):
+            return
 
 
 combo_repeat(nums, 0, 200, ans)
