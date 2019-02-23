@@ -11,3 +11,13 @@ def next_prime(x):
         x += 1
         if is_prime(x):
             return x
+        
+def prime_sieve(limit):
+    prime = [True] * limit
+    prime[0] = prime[1] = False
+
+    for p, is_prime in enumerate(prime):
+        if is_prime:
+            yield p
+            for n in range(p * p, limit, p):
+                prime[n] = False
