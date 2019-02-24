@@ -6,22 +6,26 @@
 #
 # 1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
 # How many different ways can £2 be made using any number of coins?
+from functools import reduce
 
 
 nums = [1, 2, 5, 10, 20, 50, 100, 200]
 
-ans = [0]
-def combo_repeat(list, i, target, ans):
-    if target == 0:
-        ans[0] += 1
-        return
-    if target < 0:
-        return True
-    for j in range(i, len(list)):
-        if combo_repeat(list, j, target - list[j], ans):
-            return
+
+def produce_combinations(given_coins, target_in_pence):
+    def return_one_if_possible_path(idx, left_over):
+        if left_over < 0 or idx >= len_given_coins:
+            yield 0
+        elif left_over == 0:
+            yield 1
+        else:
+            yield from return_one_if_possible_path(idx, left_over - given_coins[idx])
+            yield from return_one_if_possible_path(idx+1, left_over)
+
+    given_coins.sort(reverse=True)
+    len_given_coins = len(given_coins)
+    return reduce(lambda x, y: x + y, return_one_if_possible_path(0, target_in_pence))
 
 
-combo_repeat(nums, 0, 200, ans)
-print(ans[0])
+print(produce_combinations(nums, 200))
 
