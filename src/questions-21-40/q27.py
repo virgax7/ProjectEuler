@@ -17,7 +17,6 @@
 # produces the maximum number of primes for consecutive values of n, starting with n=0.
 
 import mp.math_utils as mp
-import math
 
 primes =  list(mp.prime_sieve(1000))
 
