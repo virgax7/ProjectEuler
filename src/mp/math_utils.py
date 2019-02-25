@@ -4,7 +4,7 @@ def is_prime(x):
     for i in range(2, int(np.sqrt(x)) + 1):
         if x % i == 0:
             return False
-    return True
+    return x > 1
 
 def next_prime(x):
     while True:
