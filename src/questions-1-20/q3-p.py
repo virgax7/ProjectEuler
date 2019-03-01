@@ -6,8 +6,7 @@
 # from what I read online, all ints > 1 is made up of a product of prime numbers
 # that means you can just keep dividing from the smallest prime factor you can evenly divide by
 # once you can't evenly divide by it, then try the next prime. You are guaranteed this because
-# all ints > 1 is made up of a product of prime numbers and since there is that set of prime numbers
-# whose product make up the number, using multiplication's commutative product, we should be guaranteed
+# all ints > 1 is made up of a product of prime numbers  using multiplication's commutative property, we should be guaranteed
 # to found all the occurrences of that smallest prime factor(at the moment), since if it came later
 # that means that it could have been found before, meaning it CAN'T come later
 # for e.g. 24 is 2 * 2 * 2 * 3 and now the answer is the last factor, i.e. 3
