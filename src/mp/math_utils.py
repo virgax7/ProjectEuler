@@ -1,4 +1,5 @@
 import numpy as np
+from functools import reduce
 
 def is_prime(x):
     for i in range(2, int(np.sqrt(x)) + 1):
@@ -41,4 +42,4 @@ def get_distinct_prime_facs(num):
 
 # One-liner fibonacci for a record
 def fib(n):
-    return reduce(lambda item, _: (item[1], item[0] + item[1]), range(n-1), (1, 1))[0]
+    return reduce(lambda item, _: (item[1], item[0] + item[1]), range(n), (0, 1))[1]
