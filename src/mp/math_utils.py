@@ -42,4 +42,4 @@ def get_distinct_prime_facs(num):
 
 # One-liner fibonacci for a record
 def fib(n):
-    return reduce(lambda item, _: (item[1], item[0] + item[1]), range(n), (0, 1))[1]
+    return reduce(lambda item, _: (item[1], item[0] + item[1]), range(n), (0, 1))[0]
