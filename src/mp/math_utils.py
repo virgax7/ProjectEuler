@@ -4,7 +4,7 @@ def is_prime(x):
     for i in range(2, int(np.sqrt(x)) + 1):
         if x % i == 0:
             return False
-    return True
+    return x > 1
 
 def next_prime(x):
     while True:
@@ -21,3 +21,21 @@ def prime_sieve(limit):
             yield p
             for n in range(p * p, limit, p):
                 prime[n] = False
+                
+def get_distinct_prime_facs(num):
+    assert num > 1
+    divisor = 2
+    result = set()
+    while True:
+        quotient = num / divisor
+        if quotient - int(quotient) == 0:
+            result.add(divisor)
+            num = quotient
+        else:
+            divisor = next_prime(divisor)
+        if num == 1 or is_prime(num):
+            result.add(num)
+            if 1 in result:
+                result.remove(1)
+            return result
+
