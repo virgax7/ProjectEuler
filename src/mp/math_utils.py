@@ -11,7 +11,7 @@ def next_prime(x):
         x += 1
         if is_prime(x):
             return x
-        
+
 def prime_sieve(limit):
     prime = [True] * limit
     prime[0] = prime[1] = False
@@ -21,7 +21,7 @@ def prime_sieve(limit):
             yield p
             for n in range(p * p, limit, p):
                 prime[n] = False
-                
+
 def get_distinct_prime_facs(num):
     assert num > 1
     divisor = 2
@@ -39,3 +39,6 @@ def get_distinct_prime_facs(num):
                 result.remove(1)
             return result
 
+# One-liner fibonacci for a record
+def fib(n):
+    return reduce(lambda item, _: (item[1], item[0] + item[1]), range(n-1), (1, 1))[0]
